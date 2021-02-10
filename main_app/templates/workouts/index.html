@@ -11,8 +11,9 @@
     <p>How Long: {{ workout.howLong }} minutes</p>
     <p>Description: {{ workout.description }}</p>
     <p>Time: {{workout.time}}</p>
-    <a href="{% url 'update' workout.id %}">Edit</a>
-    <a href="{% url 'delete' workout.id %}">Delete</a>
+    </br>
+    <a href="{% url 'update' workout.id %}" class='btn'>Edit</a>
+    <a href="{% url 'delete' workout.id %}" class='btn'>Delete</a>
   </div>
 </div>
 </a>
