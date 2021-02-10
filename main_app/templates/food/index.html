@@ -2,7 +2,6 @@
 {% block content %}
 
 <h1>Food Diary</h1>
-{% if food.count %}
     {% for food in foods %}
     <a href="{% url 'detail' food.id %}">
     <div class="card">
@@ -16,8 +15,7 @@
         <a href="{% url 'foods_delete' food.id %}" class='btn'>Delete</a>
     </div>
     </div>
-    {% endfor %} 
-{% else %}
-    <h4>No Food in your Diary.</h4>
-{% endif %}
+    {% endfor %}    
+    <hr></hr>
+    <a href="{% url 'foods_create' %}" class="btn">Add a Meal</a>
 {% endblock %}

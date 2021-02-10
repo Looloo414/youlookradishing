@@ -14,3 +14,15 @@ body {
     text-align: right;
   }
 
+  img {
+    border-radius: 75%;
+    align-content: center;
+  }
+
+  p {
+      text-align: center;
+  }
+
+  .btn {
+      background-color: rgb(77, 106, 77);
+  }
