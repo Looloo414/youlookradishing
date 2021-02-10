@@ -26,7 +26,6 @@ This app is a simple diary to track your daily food intake and excercise activit
 * Python
 * Django
 * Postgresql
-* Cloudeflare
 * Materialize
 * LucidChart
 * Trello
