@@ -16,4 +16,5 @@ urlpatterns = [
     path('food/<int:food_id>/', views.food_detail, name='detail'),
     path('foods/create/', views.FoodCreate.as_view(), name='foods_create'),
     path('foods/<int:pk>/delete/', views.FoodDelete.as_view(), name='foods_delete'),
+    path('foods/<int:pk>/update/', views.FoodUpdate.as_view(), name='foods_update'),
 ]

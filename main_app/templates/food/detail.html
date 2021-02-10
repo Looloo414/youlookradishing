@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Food Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ food.item }}</span>
+    <p>Item: {{ food.item }}</p>
+    <p>Calories: {{ food.calories }}</p>
+    <p>Meal: {{ food.meal }}</p>
+    <p>Time: {{ food.time }}</p>
+  </div>
+</div>
+<script>
+  var dateEl = document.getElementById("id_date");
+  M.Datepicker.init(dateEl, {
+    format: "yyyy-mm-dd",
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+  var selectEl = document.getElementById('id_meal');
+  M.FormSelect.init(selectEl);
+</script>
+
+{% endblock %}
+   
+   
+   
+   
+   
+   
+   

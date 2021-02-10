@@ -87,3 +87,10 @@ class FoodCreate(LoginRequiredMixin, CreateView):
 class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
     success_url = '/food/'
+
+class FoodUpdate(LoginRequiredMixin,UpdateView):
+    model = Food
+    fields = ['item', 'calories', 'meal']
+
+
+
