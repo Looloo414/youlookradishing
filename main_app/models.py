@@ -8,7 +8,7 @@ class Workout(models.Model):
     activity = models.CharField(max_length=100)
     howLong = models.IntegerField()
     description = models.TextField(max_length=300)
-    time = models.DateTimeField('Workout Time')
+    time = models.DateTimeField('Workout Time', default= datetime.now(), blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=User)
 
     def __str__(self):

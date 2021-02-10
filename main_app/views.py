@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -28,7 +28,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('about')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
@@ -44,13 +44,13 @@ def workouts_index(request):
 
 @login_required
 def workouts_detail(request, workout_id):
-    workout = Workout.objects.get()
+    workout = Workout.objects.get(id=workout_id)
     return render(request, 'workouts/detail.html', {'workout': workout})
 
-# class WorkoutCreate(LoginRequiredMixin, CreateView):
-#     model = Workout
-#     fields = ['activity','howLong', 'description']
-#     success_url = '/workout/'
+class WorkoutCreate(LoginRequiredMixin, CreateView):
+    model = Workout
+    fields = ['activity','howLong', 'description']
+    success_url = '/workout/'
 
     def form_valid(self, form):
         form.instance.user=self.request.user
