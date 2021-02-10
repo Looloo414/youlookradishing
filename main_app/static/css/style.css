@@ -15,8 +15,9 @@ body {
   }
 
   img {
-    border-radius: 75%;
-    align-content: center;
+    border-radius: 85%;
+    display:inline-table;
+    margin: 20px 20px 20px 300px;
   }
 
   p {
@@ -25,4 +26,8 @@ body {
 
   .btn {
       background-color: rgb(77, 106, 77);
+  }
+
+  .welcome {
+      text-align: center;
   }
