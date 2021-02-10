@@ -4,6 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Workout
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -33,3 +34,24 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+
+# ----------------WORKOUTS------------------------------
+
+@login_required
+def workouts_index(request):
+    workouts = Workout.objects.filter(user=request.user)
+    return render(request, 'workouts/index.html', {'workouts': workouts})
+
+@login_required
+def workouts_detail(request, workout_id):
+    workout = Workout.objects.get()
+    return render(request, 'workouts/detail.html', {'workout': workout})
+
+# class WorkoutCreate(LoginRequiredMixin, CreateView):
+#     model = Workout
+#     fields = ['activity','howLong', 'description']
+#     success_url = '/workout/'
+
+    def form_valid(self, form):
+        form.instance.user=self.request.user
+        return super().form_valid(form)
