@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Workout
+from .models import Workout, Food
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -63,3 +63,14 @@ class WorkoutDelete(LoginRequiredMixin, DeleteView):
 class WorkoutUpdate(LoginRequiredMixin, UpdateView):
     model = Workout
     fields = ['activity', 'howLong', 'description']
+
+# --------------------FOOD----------------------------
+@login_required
+def food_index(request):
+    foods = Food.objects.filter(user=request.user)
+    return render(request, 'food/index.html', {'foods': foods})
+
+@login_required
+def food_detail(request, food_id):
+    food = Food.objects.get(id=food_id)
+    return render(request, 'food/detail.html', {'food': food})

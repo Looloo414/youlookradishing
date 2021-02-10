@@ -17,3 +17,15 @@ class Workout(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'workout_id': self.id})
 
+class Food(models.Model):
+    item = models.CharField(max_length=100)
+    calories = models.IntegerField()
+    meal = models.CharField(max_length=100)
+    time = models.DateTimeField('Meal Time', default= datetime.now(), blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.item
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'food_id': self.id})
