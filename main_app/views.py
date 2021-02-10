@@ -59,3 +59,7 @@ class WorkoutCreate(LoginRequiredMixin, CreateView):
 class WorkoutDelete(LoginRequiredMixin, DeleteView):
     model = Workout
     success_url = '/workout/'
+
+class WorkoutUpdate(LoginRequiredMixin, UpdateView):
+    model = Workout
+    fields = ['activity', 'howLong', 'description']
