@@ -14,4 +14,5 @@ urlpatterns = [
     # FOOD PATHS
     path('food/', views.food_index, name='index'),
     path('food/<int:food_id>/', views.food_detail, name='detail'),
+    path('foods/create/', views.FoodCreate.as_view(), name='foods_create'),
 ]

@@ -74,3 +74,12 @@ def food_index(request):
 def food_detail(request, food_id):
     food = Food.objects.get(id=food_id)
     return render(request, 'food/detail.html', {'food': food})
+
+class FoodCreate(LoginRequiredMixin, CreateView):
+    model = Food
+    fields = ['item', 'calories', 'meal']
+    success_url = '/food/'
+
+    def form_valid(self, form):
+        form.instance.user=self.request.user
+        return super().form_valid(form)
