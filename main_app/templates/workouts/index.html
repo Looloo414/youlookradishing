@@ -1,8 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>Workout List</h1>
-{% if workout.count %}
-
     {% for workout in workouts %}
     <a href="{% url 'detail' workout.id %}">
     <div class="card">
@@ -19,7 +17,6 @@
     </div>
     </a>
     {% endfor %} 
-{% else %}
-    <h4>No Workouts in your Diary.</h4>
-{% endif %}
+    <hr></hr>
+    <a href="{% url 'workouts_create' %}" class="btn">Add a Workout</a>
 {% endblock %}
