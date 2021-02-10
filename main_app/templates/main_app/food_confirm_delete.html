@@ -1,4 +1,4 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
   <h1>Remove Meal</h1>
@@ -8,6 +8,6 @@
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes - Delete!" class="btn">
-    <a href="{% url 'detail' food.id %}">Cancel</a>
+    <a href="{% url 'detail' food.id %}" class="btn">Cancel</a>
   </form>
-{% endblock %} {% endcomment %}
+{% endblock %}

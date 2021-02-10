@@ -12,6 +12,7 @@
     <p>Calories: {{ food.calories }}</p>
     <p>Description: {{ food.meal }}</p>
     <p>Time: {{food.time}}</p>
+    <a href="{% url 'foods_delete' food.id %}" class='btn'>Delete</a>
   </div>
 </div>
 {% endfor %} 
